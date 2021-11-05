@@ -7,8 +7,9 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Fernando Monroy - Portafolio"
     />
+    <meta name="author" content="Fernando Monroy" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,10 +25,40 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fernando Monroy</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      const w = window,
+        d = document,
+        de = d.documentElement;
+
+      const light = "theme--light";
+      const dark = "theme--dark";
+
+      const t = localStorage.getItem("theme");
+
+      if (t === null || t !== light || t !== dark) {
+        const mediaQueryList = w.matchMedia("(prefers-color-scheme: dark)");
+
+        if (mediaQueryList.matches) {
+          de.classList.add(dark);
+          localStorage.setItem("theme", dark);
+        } else {
+          de.classList.add(light);
+          localStorage.setItem("theme", light);
+        }
+      } else {
+        de.classList.add(t);
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
