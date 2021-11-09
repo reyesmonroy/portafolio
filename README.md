@@ -14,9 +14,10 @@ Abrir [http://localhost:3000](http://localhost:3000) y ver en el navegador.
 ## Eliminar algunos elementos de lo que se creo.
 
 - App.css \
-- App.test.tsx 
-- logo.svg 
-- 
+- App.test.tsx \
+- logo.svg \
+- index.css
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\

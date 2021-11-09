@@ -77,6 +77,7 @@ $scroll-width: 17px;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 80px 1fr;
+  min-width: 300px;
 
   transition: $transition-bg;
 }
@@ -139,7 +140,7 @@ $scroll-width: 17px;
 }
 
 .home {
-  padding: 3rem 5rem;
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -148,168 +149,14 @@ $scroll-width: 17px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 48px;
-
-  .search-bar {
-    width: 30rem;
-    height: 3.5rem;
-    background-color: var(--element);
-    border-radius: 0.375rem;
-    box-shadow: $box-shadow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    transition: transition(background-color);
-
-    svg {
-      height: 20px;
-      position: absolute;
-      left: 32px;
-      top: 17px;
-      fill: var(--input);
-      transition: transition(fill);
-    }
-
-    .close-btn {
-      height: 30px;
-      padding: 4px;
-      left: initial;
-      top: 12px;
-      right: 10px;
-      color: var(--input);
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-      transition: transition(color);
-
-      &:hover {
-        background-color: $dark-shadow;
-      }
-    }
-
-    input {
-      position: relative;
-      z-index: 4;
-      height: 100%;
-      width: 100%;
-      padding: 0.5rem 3rem 0.5rem 4.625rem;
-      border: none;
-      border-radius: $border-radius;
-      letter-spacing: 0.2px;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 14px;
-      background-color: transparent;
-
-      color: var(--text);
-      transition-property: color, background-color, opacity;
-      transition-duration: 0.2s;
-      transition-timing-function: ease-in-out;
-
-      &:hover {
-        transition: none;
-        opacity: var(--opacity);
-        background-color: var(--hover);
-      }
-
-      &::placeholder {
-        color: var(--input);
-        opacity: 1;
-        transition: transition(color);
-      }
-    }
-  }
-
-  .filter {
-    height: 3.5rem;
-    width: 12.5rem;
-    background-color: var(--element);
-    box-shadow: $box-shadow;
-    border-radius: 0.375rem;
-    position: relative;
-    transition: transition(background-color);
-
-    button {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 0.375rem;
-      background-color: transparent;
-      cursor: pointer;
-      text-align: left;
-      padding-left: 24px;
-      color: var(--text);
-      transition-property: color, opacity, background-color;
-      transition-duration: 0.2s;
-      transition-timing-function: ease-in-out;
-      font-size: 14px;
-      line-height: 14px;
-
-      &:hover {
-        transition: none;
-        opacity: var(--opacity);
-        background-color: var(--hover);
-      }
-
-      &.unfolded svg {
-        transform: rotateZ(180deg);
-      }
-
-      svg {
-        position: absolute;
-        height: 16px;
-        right: 18px;
-        top: 1.25rem;
-        transition: transform 0.2s ease-in-out;
-      }
-    }
-
-    .options {
-      transform: scaleY(0);
-      opacity: 0;
-      transform-origin: top;
-      position: relative;
-      margin-top: 4px;
-      z-index: 100;
-      width: 100%;
-      border-radius: $border-radius;
-      background-color: var(--element);
-      box-shadow: $box-shadow;
-      color: var(--text);
-      transition-property: transform, opacity, background-color, color;
-      transition-duration: 0.2s;
-      transition-timing-function: ease-in-out;
-
-      padding: 12px;
-
-      .option {
-        width: 100%;
-        padding: 10px 12px;
-        cursor: pointer;
-        font-size: 14px;
-        line-height: 14px;
-        border-radius: math.div($border-radius, 2);
-        transition: transition(background-color);
-
-        &:hover {
-          transition: none;
-          background-color: var(--option);
-        }
-      }
-    }
-
-    .selected {
-      transform: scaleY(1);
-      opacity: 1;
-    }
-  }
+  align-items: center;
 }
 
 .countries-container {
   display: grid;
-  justify-content: space-between;
+  justify-content: space-around;
   grid-template-columns: repeat(4, $card-width);
-  row-gap: 75px;
+  row-gap: 20px;
 
   a {
     text-decoration: none;
@@ -345,7 +192,7 @@ $scroll-width: 17px;
   }
 
   .text-container {
-    padding: 25px;
+    padding: 10px 15px;
 
     h2 {
       font-size: 18px;
@@ -370,7 +217,7 @@ $scroll-width: 17px;
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
       color: transparent;
       display: flex;
       justify-content: center;
@@ -395,6 +242,31 @@ $scroll-width: 17px;
   transition: transition(color);
 }
 
+.text-theme {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  transition: transition(color);
+}
+
+.title-section {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  border-radius: 0.375rem;
+  background-color: var(--element);
+  box-shadow: $box-shadow;
+}
+
+.img-skills {
+  width: 50%;
+}
+
 .loader {
   display: block;
   width: 100%;
@@ -402,12 +274,6 @@ $scroll-width: 17px;
   background-color: red;
 }
 
-.country-page {
-  padding: 3rem 5rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
 
 .country-container {
   display: grid;
@@ -443,7 +309,7 @@ $scroll-width: 17px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
-      max-height: 999999px; //This is to fix a problem with chrome, believe me
+      max-height: 999999px;
 
       p {
         margin-bottom: 16px;
@@ -661,11 +527,14 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 2rem;
 
   a {
     height: 40px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
 
     &:first-child {
       margin-right: 0.5rem;
@@ -768,6 +637,9 @@ footer {
       }
     }
   }
+  .img-skills {
+    width: 50%;
+  }
 }
 @media screen and (max-width: 1251px) {
   .countries-container {
@@ -812,19 +684,13 @@ footer {
     grid-template-columns: repeat(2, $card-width);
     justify-content: space-evenly;
     justify-items: flex-end;
-    .search-bar {
-      width: 100%;
-    }
+  }
+  .img-skills {
+    width: 100%;
   }
   .countries-container {
     grid-template-columns: repeat(2, $card-width);
     justify-content: space-evenly;
-  }
-
-  .country-page {
-    display: grid;
-    grid-template-columns: $card-width * 2.25;
-    justify-content: center;
   }
 
   .country-container {
@@ -875,10 +741,6 @@ footer {
       padding: 3rem 3rem;
     }
   }
-  .country-page {
-    padding: 3rem 3rem;
-    display: flex;
-  }
 }
 @media screen and (max-width: 640px) {
   .countries-container {
@@ -917,10 +779,6 @@ footer {
     align-items: flex-start;
     width: 100%;
 
-    .search-bar {
-      width: 100%;
-      margin-bottom: 2rem;
-    }
   }
   .country-container {
     .text-container {
@@ -1010,17 +868,6 @@ footer {
   .countries-container {
     row-gap: 40px;
   }
-  .country-page {
-    padding: 2rem;
-
-    .text-container {
-      padding: 3rem 0 0;
-
-      .details {
-        margin-bottom: 3rem;
-      }
-    }
-  }
   .back {
     margin-bottom: 2rem;
   }
@@ -1085,9 +932,5 @@ footer {
     }
   }
 
-  .country-page {
-    padding: 2rem 1rem;
-  }
 }
 
-// https://github.com/leonardomeza87
